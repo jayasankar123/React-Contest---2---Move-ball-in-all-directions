@@ -9,7 +9,11 @@ const App = () => {
     left: "0px",
     top: "0px"
   });
-  const reset = () => {};
+  const reset = () => {
+    setX(0);
+    setY(0);
+    setBallPosition({ left: "0px", top: "0px" });
+  };
   function buttonClickHandler() {
     setRenderBall(true);
   }
@@ -30,13 +34,13 @@ const App = () => {
 
       console.log(event.key + " clicked");
     } else if (event.key === "ArrowUp") {
-      setY(y + 5);
-      setBallPosition({ top: `${y + 5}px`, left: ballPosition.left });
+      setY(y - 5);
+      setBallPosition({ top: `${y - 5}px`, left: ballPosition.left });
 
       console.log(event.key + " clicked");
     } else if (event.key === "ArrowDown") {
-      setY(y - 5);
-      setBallPosition({ top: `${y - 5}px`, left: ballPosition.left });
+      setY(y + 5);
+      setBallPosition({ top: `${y + 5}px`, left: ballPosition.left });
 
       console.log(event.key + " clicked");
     }
