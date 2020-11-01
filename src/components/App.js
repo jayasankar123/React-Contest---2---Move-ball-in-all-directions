@@ -5,12 +5,47 @@ const App = () => {
   const [renderBall, setRenderBall] = useState(false);
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
-  const [ballPosition,setBallPosition] = useState({
+  const [ballPosition, setBallPosition] = useState({
     left: "0px",
-    top: "0px",
+    top: "0px"
   });
   const reset = () => {};
-  const renderChoice = () => {};
+  function buttonClickHandler() {
+    setRenderBall(true);
+  }
+  const renderChoice = () => {
+    if (renderBall) {
+      return <div className="ball" style={ballPosition}></div>;
+    } else
+      return <button onClick={buttonClickHandler}>Click For One Ball</button>;
+  };
+  function handleEventListener(event) {
+    if (event.key === "ArrowRight") {
+      setX(x + 5);
+      setBallPosition({ left: `${x + 5}px`, top: ballPosition.top });
+      console.log(event.key + " clicked");
+    } else if (event.key === "ArrowLeft") {
+      setX(x - 5);
+      setBallPosition({ left: `${x - 5}px`, top: ballPosition.top });
+
+      console.log(event.key + " clicked");
+    } else if (event.key === "ArrowUp") {
+      setY(y + 5);
+      setBallPosition({ top: `${y + 5}px`, left: ballPosition.left });
+
+      console.log(event.key + " clicked");
+    } else if (event.key === "ArrowDown") {
+      setY(y - 5);
+      setBallPosition({ top: `${y - 5}px`, left: ballPosition.left });
+
+      console.log(event.key + " clicked");
+    }
+  }
+
+  React.useEffect(() => {
+    document.addEventListener("keydown", handleEventListener);
+    return () => document.removeEventListener("keydown", handleEventListener);
+  });
 
   return (
     <div className="playground">
