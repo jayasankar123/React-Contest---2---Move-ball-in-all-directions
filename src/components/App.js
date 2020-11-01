@@ -27,22 +27,22 @@ const App = () => {
     if (event.key === "ArrowRight") {
       setX(x + 5);
       setBallPosition({ left: `${x + 5}px`, top: ballPosition.top });
-      console.log(event.key + " clicked");
+      //console.log(event.key + " clicked");
     } else if (event.key === "ArrowLeft") {
       setX(x - 5);
       setBallPosition({ left: `${x - 5}px`, top: ballPosition.top });
 
-      console.log(event.key + " clicked");
+      //console.log(event.key + " clicked");
     } else if (event.key === "ArrowUp") {
       setY(y - 5);
       setBallPosition({ top: `${y - 5}px`, left: ballPosition.left });
 
-      console.log(event.key + " clicked");
+      //console.log(event.key + " clicked");
     } else if (event.key === "ArrowDown") {
       setY(y + 5);
       setBallPosition({ top: `${y + 5}px`, left: ballPosition.left });
 
-      console.log(event.key + " clicked");
+      //console.log(event.key + " clicked");
     }
   }
 
