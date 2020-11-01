@@ -21,7 +21,11 @@ const App = () => {
     if (renderBall) {
       return <div className="ball" style={ballPosition}></div>;
     } else
-      return <button onClick={buttonClickHandler}>Click For One Ball</button>;
+      return (
+        <button className="start" onClick={buttonClickHandler}>
+          Start
+        </button>
+      );
   };
   function handleEventListener(event) {
     if (event.key === "ArrowRight") {
@@ -53,10 +57,10 @@ const App = () => {
 
   return (
     <div className="playground">
+      {renderChoice()}
       <button onClick={reset} className="reset">
         Reset
       </button>
-      {renderChoice()}
     </div>
   );
 };
